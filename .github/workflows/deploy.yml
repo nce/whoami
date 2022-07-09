@@ -1,0 +1,29 @@
+name: deploy
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["lint", "build"]
+    branches:
+      - main
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Setup kustomize
+      uses: imranismail/setup-kustomize@v1
+
+    - name: Deploy
+      run: |
+        cd k8s
+        kustomize edit set image ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.sha }}
+        kustomize build --output prod/world.yaml
+

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    kubernetes.io/ingress.class: nginx
+    external-dns.alpha.kubernetes.io/hostname: whoami.klangregen.de
+spec:
+  tls:
+  - hosts:
+      - whoami.klangregen.de
+    secretName: whoami-cert
+  rules:
+  - host: whoami.klangregen.de
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: whoami-service
+            port:
+              name: http
+

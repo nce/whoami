@@ -1,0 +1,33 @@
+# we lint/validate kustomize changes
+name: lint
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'k8s/**'
+      - '!k8s/prod/**'
+
+jobs:
+  lint:
+    name: Lint kustomize
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Setup kubeval
+      run: |
+        wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+        tar xf kubeval-linux-amd64.tar.gz
+        sudo cp kubeval /usr/local/bin
+
+    - name: Setup kustomize
+      uses: imranismail/setup-kustomize@v1
+
+    - name: Lint
+      run: |
+        cd k8s
+        kustomize build | kubeval -v 1.23.5 -s https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master
+
