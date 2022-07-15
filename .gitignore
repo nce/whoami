@@ -1,0 +1,5 @@
+.DS_Store
+www/node_modules
+www/dist
+www/.parcel-cache
+tmp
