@@ -40,7 +40,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        platforms: linux/amd64,linux/arm64
+        platforms: linux/arm64
         tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.sha }}
         labels: ${{ github.event.repository.updated_at}}
 
