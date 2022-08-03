@@ -43,6 +43,9 @@ jobs:
         platforms: linux/arm64
         tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.sha }}
         labels: ${{ github.event.repository.updated_at}}
+        context: .
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
 
     - uses: imranismail/setup-kustomize@v1
     - run: |
