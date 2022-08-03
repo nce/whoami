@@ -44,12 +44,12 @@ metadata:
   annotations:
     acme.cert-manager.io/http01-edit-in-place: "true"
     cert-manager.io/cluster-issuer: letsencrypt
-    external-dns.alpha.kubernetes.io/hostname: whoami.klangregen.de
+    external-dns.alpha.kubernetes.io/hostname: whoami.nce.wtf
     kubernetes.io/ingress.class: nginx
   name: whoami-ingress
 spec:
   rules:
-  - host: whoami.klangregen.de
+  - host: whoami.nce.wtf
     http:
       paths:
       - backend:
@@ -61,5 +61,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - whoami.klangregen.de
+    - whoami.nce.wtf
     secretName: whoami-cert
