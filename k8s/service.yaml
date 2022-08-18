@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: whoami-service
   namespace: whoami
+  labels:
+    app.kubernetes.io/name: whoami
 spec:
   selector:
     app.kubernetes.io/name: whoami
@@ -11,3 +13,7 @@ spec:
     protocol: TCP
     port: 80
     targetPort: http
+  - name: metrics
+    protocol: TCP
+    port: 9113
+    targetPort: metrics

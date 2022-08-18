@@ -4,6 +4,11 @@ resources:
 - deployment.yaml
 - ingress.yaml
 - service.yaml
+- servicemonitor.yaml
+- configmap.yaml
+- prometheus.yaml
+- serviceaccount.yaml
+- clusterrolebinding.yaml
 replicas:
 - count: 2
   name: whoami
