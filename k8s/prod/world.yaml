@@ -30,7 +30,7 @@ spec:
         app.kubernetes.io/name: whoami
     spec:
       containers:
-      - image: ghcr.io/nce/whoami:66b5bdc66fcb49a99b5323ff045d43c1a16e0249
+      - image: ghcr.io/nce/whoami:9b9c57a58698bde6ccfdc41fbed324ed087bb350
         name: whoami
         ports:
         - containerPort: 80
