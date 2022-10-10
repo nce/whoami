@@ -3,5 +3,9 @@
   "extends": [
     "config:base",
     ":semanticCommits"
+  ],
+  "timezone": "Europe/Berlin",
+  "schedule": [
+    "before 3am on Monday"
   ]
 }
