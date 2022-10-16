@@ -24,7 +24,7 @@ jobs:
         sudo cp kubeval /usr/local/bin
 
     - name: Setup kustomize
-      uses: imranismail/setup-kustomize@v1
+      uses: imranismail/setup-kustomize@v2
 
     - name: Lint
       run: |
