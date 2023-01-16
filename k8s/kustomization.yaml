@@ -9,4 +9,4 @@ replicas:
   name: whoami
 images:
 - name: ghcr.io/nce/whoami
-  newTag: 703dcd035d7994aa61dcf596eb6208fd0adc0f83
+  newTag: b552e20a8db0542787da62f607b43e79150bd6a3
