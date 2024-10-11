@@ -10,6 +10,6 @@ COPY www/src src
 
 RUN npm run build
 
-FROM nginx:1.23.3
+FROM nginx:1.27.2
 
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
