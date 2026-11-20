@@ -13,8 +13,8 @@
     "wow.js": "1.2.2"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.8.3",
-    "parcel": "2.8.3",
+    "@parcel/transformer-sass": "2.16.4",
+    "parcel": "2.16.4",
     "sharp": "^0.31.3"
   },
   "scripts": {
